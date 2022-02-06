@@ -9,13 +9,29 @@
     <script>
       //テキスト非表示
       onshow("text-box2");
+      
+      function init() {
+        var params = (new URL(document.location)).searchParams;
+        try {
+          var yid = removehtml(params.get("yid"));
+          if ( yid != "" && yid != null ) {
+            var videobox = document.getElementById("videobox");
+            videobox.innerHTML = "<iframe class='youtube-video' width='720' height='405' src='https://www.youtube.com/embed/" + yid + "?autoplay=1&playsinline=1&mute=0&controls=0&loop=1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+          }
+        } catch(e) {
+        }
+
+        function removehtml(str) {
+            return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+        }
+      }
     </script>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body onload="init();">
     <section class="youtube">
-        <div class="video-box overlay">
-            <iframe class="youtube-video" width="720" height="405" src="https://www.youtube.com/embed/HOGdd1Be0vs?autoplay=1&playsinline=1&mute=0&controls=0&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video-box overlay" id="videobox">
+            <iframe class="youtube-video" width="720" height="405" src="https://www.youtube.com/embed/M6Ewsnk8aH4?autoplay=1&playsinline=1&mute=0&controls=0&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="text-box" id="text-box">
           <h1>不思議の国のモンハン部</h1>
