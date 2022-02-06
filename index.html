@@ -25,6 +25,12 @@
             return str.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
         }
       }
+
+      function resetmovie() {
+        var yid="M6Ewsnk8aH4";
+          var videobox = document.getElementById("videobox");
+          videobox.innerHTML = "<iframe class='youtube-video' width='720' height='405' src='https://www.youtube.com/embed/" + yid + "?autoplay=1&playsinline=1&mute=0&controls=0&loop=1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+      }
     </script>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -36,6 +42,9 @@
         <div class="text-box" id="text-box">
           <h1>不思議の国のモンハン部</h1>
           <h2>Youtube Gaming</h2>
+        </div>
+        <div>
+          <button onclick="resetmovie();">動画が表示されない？</button>
         </div>
       </section>
       <section class="menu">
